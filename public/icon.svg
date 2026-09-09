@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="50%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#d1fae5" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Rectangle -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+
+  <!-- Subtle Inner Grid Glow -->
+  <circle cx="256" cy="180" r="180" fill="#34d399" opacity="0.12" />
+
+  <!-- Main Finance Chat Bubble / Card Shape -->
+  <g filter="url(#shadow)">
+    <!-- Chat / Wallet Card Base -->
+    <rect x="106" y="136" width="300" height="200" rx="36" fill="url(#cardGrad)" />
+    
+    <!-- Accent Top Stripe -->
+    <path d="M 106 172 C 106 152 122 136 142 136 L 370 136 C 390 136 406 152 406 172 L 406 190 L 106 190 Z" fill="#10b981" />
+    
+    <!-- Magnetic / Smart Chip -->
+    <rect x="140" y="215" width="46" height="34" rx="8" fill="#f59e0b" />
+    <line x1="140" y1="232" x2="186" y2="232" stroke="#d97706" stroke-width="2" />
+    <line x1="163" y1="215" x2="163" y2="249" stroke="#d97706" stroke-width="2" />
+
+    <!-- Rupiah / Currency Symbol Design -->
+    <text x="355" y="246" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" fill="#065f46" text-anchor="middle">Rp</text>
+
+    <!-- Cardholder / Finchat Branding Line -->
+    <rect x="140" y="280" width="120" height="10" rx="5" fill="#a7f3d0" />
+    <rect x="140" y="298" width="70" height="8" rx="4" fill="#6ee7b7" />
+  </g>
+
+  <!-- AI Sparkle 1 (Large Top Right) -->
+  <path d="M 390 100 Q 390 130 420 130 Q 390 130 390 160 Q 390 130 360 130 Q 390 130 390 100 Z" fill="#fbbf24" filter="url(#shadow)" />
+
+  <!-- AI Sparkle 2 (Small Bottom Right) -->
+  <path d="M 380 340 Q 380 358 398 358 Q 380 358 380 376 Q 380 358 362 358 Q 380 358 380 340 Z" fill="#34d399" />
+
+  <!-- Dynamic Trend Arrow Growth -->
+  <g filter="url(#shadow)">
+    <!-- Growth Trend Badge -->
+    <rect x="136" y="356" width="240" height="52" rx="26" fill="#0f172a" />
+    <circle cx="164" cy="382" r="16" fill="#10b981" />
+    <!-- Upward arrow -->
+    <path d="M 158 386 L 164 376 L 170 386 M 164 376 L 164 388" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Text Finchat AI -->
+    <text x="264" y="390" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="19" fill="#f8fafc" text-anchor="middle" letter-spacing="1">FINCHAT AI</text>
+  </g>
+</svg>

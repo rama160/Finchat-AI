@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Finchat AI</title>
+    <meta name="description" content="Aplikasi pencatatan keuangan pribadi cerdas dengan input teks/suara multi-transaksi, scan struk, Chat AI, laporan keuangan interaktif, dan sinkronisasi Google Sheets." />
+    <meta name="theme-color" content="#059669" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Finchat AI" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:title" content="Finchat AI" />
+    <meta property="og:description" content="Aplikasi pencatatan keuangan pribadi cerdas dengan input teks/suara multi-transaksi, scan struk, Chat AI, laporan keuangan interaktif, dan sinkronisasi Google Sheets." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (function() {
+        const origError = console.error;
+        console.error = function(...args) {
+          if (args.length > 0 && typeof args[0] === 'string' && (args[0].includes('[vite]') || args[0].includes('vite-plugin-pwa'))) {
+            return;
+          }
+          origError.apply(console, args);
+        };
+        const origWarn = console.warn;
+        console.warn = function(...args) {
+          if (args.length > 0 && typeof args[0] === 'string' && (args[0].includes('[vite]') || args[0].includes('vite-plugin-pwa'))) {
+            return;
+          }
+          origWarn.apply(console, args);
+        };
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-slate-50 text-slate-900 font-sans antialiased select-none">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

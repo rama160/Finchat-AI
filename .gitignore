@@ -1,0 +1,22 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Flutter & Dart
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+android/.gradle/
+android/local.properties
+android/app/build/
+ios/.generated/
+*.lock
+!package-lock.json
+!pubspec.lock
+
