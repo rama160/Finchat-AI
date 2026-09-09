@@ -37,7 +37,7 @@ jobs:
 
       - name: Ensure Android Platform Configuration
         run: |
-          flutter create . --platforms=android --org com.finchat.ai
+          flutter create . --project-name finchat_ai --platforms=android --org com.finchat.ai
           rm -f android/*.gradle.kts android/app/*.gradle.kts
           sed -i '/package="com.finchat.ai"/d' android/app/src/main/AndroidManifest.xml 2>/dev/null || true
           echo "android.builtInKotlin=false" >> android/gradle.properties
