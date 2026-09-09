@@ -21,14 +21,12 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-          cache: 'gradle'
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-          cache: true
-          cache-key: "flutter-:os:-:channel:-:version:-:arch:-:hash:"
+          cache: false
 
       - name: Check Flutter Doctor
         run: flutter doctor -v
@@ -39,6 +37,7 @@ jobs:
       - name: Ensure Android Platform Configuration
         run: |
           flutter create . --platforms=android --org com.finchat.ai
+          sed -i '/package="com.finchat.ai"/d' android/app/src/main/AndroidManifest.xml 2>/dev/null || true
           echo "android.builtInKotlin=false" >> android/gradle.properties
           echo "android.newDsl=false" >> android/gradle.properties
           chmod +x android/gradlew 2>/dev/null || true
