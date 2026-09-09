@@ -36,7 +36,13 @@ jobs:
       - name: Ensure Android Platform Configuration
         run: |
           flutter create . --platforms=android --org com.finchat.ai
-          chmod +x android/gradlew || true
+          echo "android.builtInKotlin=false" >> android/gradle.properties
+          echo "android.newDsl=false" >> android/gradle.properties
+          sed -i 's/sourceCompatibility JavaVersion.VERSION_1_8/sourceCompatibility JavaVersion.VERSION_17/g' android/app/build.gradle 2>/dev/null || true
+          sed -i 's/targetCompatibility JavaVersion.VERSION_1_8/targetCompatibility JavaVersion.VERSION_17/g' android/app/build.gradle 2>/dev/null || true
+          sed -i 's/jvmTarget = '\''1.8'\''/jvmTarget = '\''17'\''/g' android/app/build.gradle 2>/dev/null || true
+          sed -i 's/compileSdkVersion/compileSdk/g' android/app/build.gradle 2>/dev/null || true
+          chmod +x android/gradlew 2>/dev/null || true
 
       - name: Get Flutter dependencies
         run: flutter pub get

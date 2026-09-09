@@ -19,20 +19,35 @@
     <meta name="twitter:card" content="summary_large_image" />
     <script>
       (function() {
-        const origError = console.error;
-        console.error = function(...args) {
-          if (args.length > 0 && typeof args[0] === 'string' && (args[0].includes('[vite]') || args[0].includes('vite-plugin-pwa'))) {
-            return;
-          }
-          origError.apply(console, args);
+        const isViteMessage = function(args) {
+          try {
+            for (let i = 0; i < args.length; i++) {
+              const arg = args[i];
+              const str = typeof arg === 'string' ? arg : (arg && arg.message ? String(arg.message) : '');
+              if (str && (str.includes('[vite]') || str.includes('vite-plugin-pwa') || str.includes('failed to connect to websocket'))) {
+                return true;
+              }
+            }
+          } catch (e) {}
+          return false;
         };
-        const origWarn = console.warn;
-        console.warn = function(...args) {
-          if (args.length > 0 && typeof args[0] === 'string' && (args[0].includes('[vite]') || args[0].includes('vite-plugin-pwa'))) {
-            return;
+
+        ['error', 'warn', 'log', 'info', 'debug'].forEach(function(method) {
+          const original = console[method];
+          if (typeof original === 'function') {
+            console[method] = function(...args) {
+              if (isViteMessage(args)) return;
+              original.apply(console, args);
+            };
           }
-          origWarn.apply(console, args);
-        };
+        });
+
+        window.addEventListener('error', function(event) {
+          if (event && event.message && (event.message.includes('[vite]') || event.message.includes('failed to connect to websocket'))) {
+            event.stopImmediatePropagation();
+            event.preventDefault();
+          }
+        }, true);
       })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
