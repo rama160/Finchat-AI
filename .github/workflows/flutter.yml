@@ -33,22 +33,23 @@ jobs:
       - name: Check Flutter Doctor
         run: flutter doctor -v
 
+      - name: Accept Android Licenses
+        run: yes | flutter doctor --android-licenses || true
+
       - name: Ensure Android Platform Configuration
         run: |
           flutter create . --platforms=android --org com.finchat.ai
           echo "android.builtInKotlin=false" >> android/gradle.properties
           echo "android.newDsl=false" >> android/gradle.properties
-          sed -i 's/sourceCompatibility JavaVersion.VERSION_1_8/sourceCompatibility JavaVersion.VERSION_17/g' android/app/build.gradle 2>/dev/null || true
-          sed -i 's/targetCompatibility JavaVersion.VERSION_1_8/targetCompatibility JavaVersion.VERSION_17/g' android/app/build.gradle 2>/dev/null || true
-          sed -i 's/jvmTarget = '\''1.8'\''/jvmTarget = '\''17'\''/g' android/app/build.gradle 2>/dev/null || true
-          sed -i 's/compileSdkVersion/compileSdk/g' android/app/build.gradle 2>/dev/null || true
           chmod +x android/gradlew 2>/dev/null || true
 
       - name: Get Flutter dependencies
-        run: flutter pub get
+        run: |
+          flutter clean
+          flutter pub get
 
       - name: Build Android Release APK
-        run: flutter build apk --release --no-tree-shake-icons
+        run: flutter build apk --release --no-tree-shake-icons --verbose
 
       - name: Upload Android Release APK
         uses: actions/upload-artifact@v4
