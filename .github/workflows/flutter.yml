@@ -40,14 +40,15 @@ jobs:
           flutter create . --project-name finchat_ai --platforms=android --org com.finchat.ai
           rm -f android/*.gradle.kts android/app/*.gradle.kts
           sed -i '/package="com.finchat.ai"/d' android/app/src/main/AndroidManifest.xml 2>/dev/null || true
-          echo "android.builtInKotlin=false" >> android/gradle.properties
-          echo "android.newDsl=false" >> android/gradle.properties
           chmod +x android/gradlew 2>/dev/null || true
 
       - name: Get Flutter dependencies
         run: |
           flutter clean
           flutter pub get
+
+      - name: Validate Dart Code
+        run: flutter analyze --no-fatal-infos
 
       - name: Build Android Release APK
         run: flutter build apk --release --no-tree-shake-icons

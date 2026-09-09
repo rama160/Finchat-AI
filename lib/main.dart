@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'services/storage_service.dart';
 import 'screens/transactions_screen.dart';
 import 'screens/chat_screen.dart';
@@ -28,7 +27,6 @@ class FinchatApp extends StatelessWidget {
           primary: const Color(0xFF059669),
           surface: const Color(0xFFF8FAFC),
         ),
-        textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme),
         scaffoldBackgroundColor: const Color(0xFFF8FAFC),
       ),
       home: const MainNavigationScreen(),

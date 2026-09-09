@@ -84,9 +84,9 @@ class _ChatScreenState extends State<ChatScreen> {
       final foodTotal = foodTx.fold(0, (sum, t) => sum + t.amount);
       return 'Total pengeluaran untuk kategori Makanan adalah ${StorageService.formatRupiah(foodTotal)} dari ${foodTx.length} transaksi.';
     } else if (lower.contains('hemat') || lower.contains('tips') || lower.contains('saran')) {
-      return '💡 Saran hemat Finchat AI:\n1. Alokasikan 50% untuk kebutuhan, 30% keinginan, 20% tabungan/investasi.\n2. Batasi jajan kopi dan makanan pesan-antar ke maksimal 3 kali seminggu.\n3. Catat segera setiap transaksi sekecil apa pun!';
+      return '[Tips Finchat AI]\n1. Alokasikan 50% untuk kebutuhan, 30% keinginan, 20% tabungan/investasi.\n2. Batasi jajan kopi dan makanan pesan-antar ke maksimal 3 kali seminggu.\n3. Catat segera setiap transaksi sekecil apa pun!';
     } else if (lower.contains('rangkum') || lower.contains('laporan')) {
-      return '📊 Rangkuman Keuangan:\n• Total Pemasukan: $incomeStr\n• Total Pengeluaran: $expenseStr\n• Net Cash Flow: $balanceStr\nStatus kas Anda dalam kondisi sehat dan surplus!';
+      return '[Rangkuman Keuangan]\n- Total Pemasukan: $incomeStr\n- Total Pengeluaran: $expenseStr\n- Net Cash Flow: $balanceStr\nStatus kas Anda dalam kondisi sehat dan surplus!';
     } else {
       return 'Saya memahami pesan Anda. Anda dapat bertanya seputar sisa saldo, rincian kategori pengeluaran, atau tips berhemat.';
     }

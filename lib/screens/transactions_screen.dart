@@ -472,7 +472,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                 children: [
                                   Text(tx.description, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
                                   const SizedBox(height: 2),
-                                  Text('${tx.category} • ${tx.transactionDate}', style: TextStyle(fontSize: 11, color: Colors.grey[500])),
+                                  Text('${tx.category} - ${tx.transactionDate}', style: TextStyle(fontSize: 11, color: Colors.grey[500])),
                                 ],
                               ),
                             ),
