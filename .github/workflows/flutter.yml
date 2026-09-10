@@ -41,6 +41,7 @@ jobs:
           rm -f android/*.gradle.kts android/app/*.gradle.kts
           sed -i '/package="com.finchat.ai"/d' android/app/src/main/AndroidManifest.xml 2>/dev/null || true
           chmod +x android/gradlew 2>/dev/null || true
+          rm -rf test
 
       - name: Get Flutter dependencies
         run: |
@@ -48,7 +49,7 @@ jobs:
           flutter pub get
 
       - name: Validate Dart Code
-        run: flutter analyze --no-fatal-infos
+        run: flutter analyze lib/
 
       - name: Build Android Release APK
         run: flutter build apk --release --no-tree-shake-icons

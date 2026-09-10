@@ -26,15 +26,15 @@ class SettingsScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               border: Border.all(color: const Color(0xFFE2E8F0)),
             ),
-            child: Row(
+            child: const Row(
               children: [
                 CircleAvatar(
                   radius: 24,
-                  backgroundColor: const Color(0xFF059669),
-                  child: const Icon(Icons.wallet, color: Colors.white, size: 24),
+                  backgroundColor: Color(0xFF059669),
+                  child: Icon(Icons.wallet, color: Colors.white, size: 24),
                 ),
-                const SizedBox(width: 14),
-                const Column(
+                SizedBox(width: 14),
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('Finchat AI', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
@@ -57,11 +57,11 @@ class SettingsScreen extends StatelessWidget {
             ),
             child: Column(
               children: [
-                ListTile(
-                  leading: const Icon(Icons.currency_exchange, color: Color(0xFF059669)),
-                  title: const Text('Mata Uang', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
-                  subtitle: const Text('Rupiah Indonesia (IDR)', style: TextStyle(fontSize: 12)),
-                  trailing: const Icon(Icons.check, color: Color(0xFF059669)),
+                const ListTile(
+                  leading: Icon(Icons.currency_exchange, color: Color(0xFF059669)),
+                  title: Text('Mata Uang', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+                  subtitle: Text('Rupiah Indonesia (IDR)', style: TextStyle(fontSize: 12)),
+                  trailing: Icon(Icons.check, color: Color(0xFF059669)),
                 ),
                 const Divider(height: 1),
                 ListTile(
