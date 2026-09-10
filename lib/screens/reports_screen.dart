@@ -70,7 +70,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.between,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text('Net Cash Flow', style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold)),
                       Container(
