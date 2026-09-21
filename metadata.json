@@ -1,6 +1,0 @@
-{
-  "name": "Finchat AI",
-  "description": "Aplikasi pencatatan keuangan pribadi cerdas dengan input teks/suara multi-transaksi, scan struk, Chat AI, laporan keuangan interaktif, dan sinkronisasi Google Sheets.",
-  "requestFramePermissions": ["camera", "microphone"],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
